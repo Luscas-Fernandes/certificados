@@ -26,12 +26,30 @@ VALUES ('polo shirt', 'purple', 'M', 50);
 SELECT article, color FROM shirts;
 SELECT article, color, shirt_size, last_worn FROM shirts;
 
-UPDATE shirts SET shirt_size='L';
+UPDATE shirts 
+SET 
+	shirt_size='L'
+WHERE 
+	article = 'polo shirt';
+
 SELECT * FROM shirts;
-UPDATE shirts SET last_worn=0 WHERE last_worn=15;
+
+UPDATE shirts
+SET 
+	last_worn=0 
+WHERE 
+	last_worn=15;
+
 SELECT * FROM shirts;
-UPDATE shirts SET shirt_size='XS', color='off white' WHERE color='white';
+
+UPDATE shirts 
+SET 
+	shirt_size='XS', color='off white'
+WHERE
+	color='white';
+
 SELECT * FROM shirts;
+
 
 DELETE FROM shirts WHERE last_worn=200;
 DELETE FROM shirts WHERE article='tank top';
@@ -40,4 +58,3 @@ SELECT * FROM shirts;
 DELETE FROM shirts;
 SELECT * FROM shirts;
 DROP DATABASE shirts_db;
-    
