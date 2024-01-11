@@ -1,3 +1,7 @@
+CREATE DATABASE library;
+
+USE library;
+
 CREATE TABLE books (
 	book_id INT NOT NULL AUTO_INCREMENT,
 	title VARCHAR(100),
@@ -164,3 +168,29 @@ SELECT
 	) AS 'author_initials'
 FROM
 	books;
+
+
+-- Replace
+SELECT REPLACE('cheese bread milk coffee', ' ', ' and ');
+
+SELECT REPLACE(title, ' ', '-') FROM books;
+
+
+-- Reverse
+
+SELECT REVERSE(author_fname) FROM books;
+
+SELECT CONCAT(author_fname, REVERSE(author_fname)) FROM books; -- Palindrome
+
+-- Char_length -> number of chars and length -> number in bytes
+
+SELECT CHAR_LENGTH(title), title FROM books;
+
+-- Upper and lower
+SELECT UPPER('Hello World');
+SELECT LOWER('Hello World');
+SELECT UCASE('Hello World');
+SELECT LCASE('Hello World');
+
+SELECT CONCAT_WS(' ', 'I LOVE', UPPER(title), '!!!') FROM books;
+
