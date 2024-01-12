@@ -194,3 +194,43 @@ SELECT LCASE('Hello World');
 
 SELECT CONCAT_WS(' ', 'I LOVE', UPPER(title), '!!!') FROM books;
 
+-- Insert(StringToBeInserted, WhichCharFrom, HowManyCharsReplacing, StringToInsert)
+
+SELECT INSERT('Hello Bobby', 6, 0, ' There');
+SELECT INSERT('Hello Bobby', 6, 4, ' There');
+SELECT INSERT('Hello Bobby', 6, 6, ' There');
+
+-- Left/Right gets the left/right most number of chars
+
+SELECT LEFT('omghahajkLol', 3);
+SELECT RIGHT('omghahajkLol', 3);
+
+-- Repeat(stringToBeRepeated, NOF(number of times) repeated)
+
+SELECT REPEAT('ha', 4);
+
+-- TRIM(stringToBeTrimmed), removes all the white spaces left and right to the string, do not remove spaces in the middle
+
+SELECT TRIM('           nossa          que         ');
+SELECT TRIM(LEADING '.' FROM '.........nossa.....que...'); -- Only removes leading .
+SELECT TRIM(TRAILING '.' FROM '.........nossa.....que...'); -- Only removes trailing .
+SELECT TRIM(BOTH '.' FROM '.........nossa.....que...'); -- Removes both .W
+
+-- STR function exercises
+
+SELECT UPPER(REVERSE('why does my cat look at me with such hatred'));
+
+SELECT REPLACE(title, ' ', '->') FROM books;
+
+SELECT author_lname AS 'forwards', REVERSE(author_lname) AS 'backwards' FROM books;
+
+SELECT CONCAT_WS(' ', UPPER(author_fname), UPPER(author_lname)) AS 'full name in caps' FROM books;
+
+SELECT CONCAT_WS(' ', title, 'was released in', released_year) AS 'blurb' FROM books;
+
+SELECT title, CHAR_LENGTH(title) AS 'character count' FROM books;
+
+SELECT CONCAT(SUBSTRING(title, 1, 10), '...') AS 'short title', 
+	   CONCAT_WS(',', author_lname, author_fname) AS 'author', 
+	   CONCAT_WS(' ', stock_quantity, 'in stock') AS 'quantity' 
+	   FROM books;
