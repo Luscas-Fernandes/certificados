@@ -40,8 +40,38 @@ alert("your tweet size: " + big_text.length + " characters, you have: " + (140 -
 
 // ---------------------- slicing of string ---------------------- 
 
-var big_text = prompt("Write your tweet: ");
+/* var big_text = prompt("Write your tweet: ");
 
-alert("Your tweet: " + big_text.slice(0, 140) + " with maximum of 140 characters");
+alert("Your tweet: " + big_text.slice(0, 140) + " with maximum of 140 characters"); */
 
 // ---------------------- EOF slicing ----------------------
+
+// ---------------------- ToUpperCase ---------------------- 
+
+/* var name = "Lucas";
+
+alert(name.toUpperCase()); */
+
+/* var name = prompt("Your name: ").toUpperCase();
+
+alert("Hello " + name); */
+
+
+/* Exercise of returning first letter of name capitalized  */
+
+/* var name = prompt("what's your name: ").toLowerCase();
+name = name.slice(0, 1).toUpperCase() + name.slice(1, name.length);
+alert("Hi " + name); */
+
+
+// ---------------------- EOF ToUpperCase ---------------------- 
+
+// ---------------------- BASIC Arithmetic ---------------------- 
+
+var dogAge = prompt("what's your dog age: ");
+dogAge = (dogAge - 2) * 4 + 21;
+alert("your dog age is: " + dogAge);
+
+
+
+// ---------------------- EOF BASIC Arithmetic ---------------------- 
