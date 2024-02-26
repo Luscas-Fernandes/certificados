@@ -47,3 +47,47 @@ SELECT title, released_year FROM books WHERE released_year = (SELECT MIN(release
 SELECT author_fname, author_lname, COUNT(*) FROM books GROUP BY author_lname, author_fname;
 
 SELECT CONCAT(author_fname, ' ', author_lname) AS author, COUNT(*) FROM books, GROUP BY author
+
+SELECT author_fname, author_lname, MIN(released_year) FROM books GROUP BY author_fname, author_lname;
+SELECT author_fname, author_lname, MIN(released_year), MAX(released_year) FROM books GROUP BY author_fname, author_lname;
+
+SELECT author_fname, author_lname, 
+    COUNT(*) AS books_written,
+    MAX(released_year) AS 'latest released',
+    MIN(released_year) AS 'earliest released'
+FROM books GROUP BY author_lname, author_fname;
+
+--
+
+-- SUM
+
+SELECT CONCAT(author_fname, ' ', author_lname) AS 'Author name', 
+       SUM(PAGES) AS 'Total pages written' 
+       FROM books 
+       GROUP BY author_fname, author_lname;
+
+--
+
+-- AVG
+
+SELECT released_year, AVG(stock_quantity) AS 'Average stock quantity', COUNT(*) FROM books GROUP BY released_year ORDER BY released_year DESC;
+
+--
+
+-- Exercise Agg. Functions
+
+SELECT released_year, COUNT(*) AS 'Quantidade livros lançado no ano' FROM books GROUP BY released_year ORDER BY released_year DESC;
+SELECT COUNT(book_id) AS 'quantidade de livros' FROM books;
+SELECT CONCAT_WS(' ', author_fname, author_lname) AS 'author name', AVG(released_year) FROM Books GROUP BY author_fname, author_lname;
+
+SELECT SUM(stock_quantity) FROM books;
+
+SELECT 
+    CONCAT_WS(' ', author_fname, author_lname) AS 'Author name of the longest book', 
+    title, 
+    pages 
+    FROM books 
+    WHERE pages = (SELECT MAX(pages) FROM books);
+
+--
+
