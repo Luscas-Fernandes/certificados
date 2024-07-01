@@ -1,0 +1,1 @@
+static const double PI = 3.14159; // not a problem use extern in other file with this static, data is duplicated as each file use the header
