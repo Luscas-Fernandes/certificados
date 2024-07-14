@@ -6,6 +6,7 @@ int main()
     short int w2 = 45;
 
     // swap without the use of a third variable
+    // w1 ^= w1; sets variable to 0
 
     w1 ^= w2;
     w2 ^= w1;
